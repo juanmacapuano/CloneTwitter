@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="fragmentLogin"
+            type="com.juanmacapuano.clonetwitter.ui.LoginFragment" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground">
+
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="80dp"
+            app:layout_constraintEnd_toStartOf="@+id/tv_title_app"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_title_app"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/cloneTwitter_title"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/iv_logo"
+            app:layout_constraintTop_toTopOf="@+id/iv_logo"
+            tools:text="@string/cloneTwitter_title" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/et_layout_email_login"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:hint="@string/email_title"
+            android:textColorHint="@color/white"
+            app:hintTextColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/tv_title_app"
+            app:layout_constraintStart_toStartOf="@+id/iv_logo"
+            app:layout_constraintTop_toBottomOf="@+id/iv_logo">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_email_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#0F7EDD"
+                android:inputType="textEmailAddress" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/et_layout_password_login"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:hint="@string/password_title"
+            android:textColorHint="@color/white"
+            app:hintTextColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/et_layout_email_login"
+            app:layout_constraintStart_toStartOf="@+id/et_layout_email_login"
+            app:layout_constraintTop_toBottomOf="@+id/et_layout_email_login">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_password_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#0F7EDD"
+                android:inputType="textPassword" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_login"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:backgroundTint="@android:color/white"
+            android:text="@string/ingresar"
+            android:textColor="@color/colorBackground"
+            app:layout_constraintEnd_toEndOf="@+id/et_layout_password_login"
+            app:layout_constraintStart_toStartOf="@+id/et_layout_password_login"
+            app:layout_constraintTop_toBottomOf="@+id/et_layout_password_login" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_registration"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:text="@string/register_title"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/bt_login"
+            app:layout_constraintStart_toStartOf="@+id/bt_login"
+            app:layout_constraintTop_toBottomOf="@+id/bt_login" />
+
+        <ProgressBar
+            android:id="@+id/pb_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

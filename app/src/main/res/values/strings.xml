@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">CloneTwitter</string>
+    <string name="cloneTwitter_title">CloneTwitter</string>
+    <string name="email_title">Email</string>
+    <string name="password_title">Password</string>
+    <string name="ingresar">Iniciar Sesión</string>
+    <string name="register_title">Si no tienes cuenta, regístrate aquí</string>
+    <string name="init_sesion_title">Si posee una cuenta, inicie sesión</string>
+    <string name="register_title_btn">Registrarme</string>
+    <string name="user_name">Nombre de Usuario</string>
 </resources>
