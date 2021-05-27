@@ -6,7 +6,7 @@
     <data>
         <variable
             name="fragmentLogin"
-            type="com.juanmacapuano.clonetwitter.ui.LoginFragment" />
+            type="com.juanmacapuano.clonetwitter.ui.auth.LoginFragment" />
 
     </data>
 

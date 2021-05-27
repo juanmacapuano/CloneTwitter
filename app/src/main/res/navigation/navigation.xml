@@ -5,7 +5,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.juanmacapuano.clonetwitter.ui.LoginFragment"
+        android:name="com.juanmacapuano.clonetwitter.ui.auth.LoginFragment"
         android:label="LoginFragment" >
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
@@ -13,7 +13,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.juanmacapuano.clonetwitter.ui.RegisterFragment"
+        android:name="com.juanmacapuano.clonetwitter.ui.auth.RegisterFragment"
         android:label="RegisterFragment" >
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"

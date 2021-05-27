@@ -8,4 +8,9 @@
     <string name="init_sesion_title">Si posee una cuenta, inicie sesión</string>
     <string name="register_title_btn">Registrarme</string>
     <string name="user_name">Nombre de Usuario</string>
+    <string name="email_error">Ingrese un Email</string>
+    <string name="password_error">Ingrese un Password</string>
+    <string name="login_error">Email y/o password incorrecto</string>
+    <string name="register_error">Hubo un error. Por favor, intente nuevamente</string>
+    <string name="hello_blank_fragment">Hello user</string>
 </resources>

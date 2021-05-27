@@ -3,6 +3,7 @@ package com.juanmacapuano.clonetwitter.service.api
 import com.juanmacapuano.clonetwitter.service.data.RequestLogin
 import com.juanmacapuano.clonetwitter.service.data.RequestSignup
 import com.juanmacapuano.clonetwitter.service.data.ResponseLogin
+import com.juanmacapuano.clonetwitter.service.data.ResponseSignup
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -13,19 +14,15 @@ import retrofit2.http.POST
 
 interface ApiSwagger {
 
-    companion object {
-        const val BASE_URL = "https://minitwitter.com:3001/apiv1/"
-        const val CODE = "UDEMYANDROID"
-    }
-
     @POST(value = "auth/login")
     suspend fun doLogin(@Body requestLogin: RequestLogin): ResponseLogin
 
     @POST(value = "auth/signup")
-    suspend fun doSignUp(@Body requestSignUp: RequestSignup): ResponseLogin
+    suspend fun doSignUp(@Body requestSignUp: RequestSignup): ResponseSignup
 
 }
 
+/*
 fun create(): ApiSwagger {
     val logger = HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY }
 
@@ -42,4 +39,4 @@ fun create(): ApiSwagger {
 
 }
 
-var apiSwagger : ApiSwagger = create()
+var apiSwagger : ApiSwagger = create()*/
