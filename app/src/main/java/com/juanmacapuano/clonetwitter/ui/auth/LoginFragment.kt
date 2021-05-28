@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.juanmacapuano.clonetwitter.R
 import com.juanmacapuano.clonetwitter.databinding.FragmentLoginBinding
@@ -19,11 +20,13 @@ import com.juanmacapuano.clonetwitter.service.api.StatusResponseAPI
 import com.juanmacapuano.clonetwitter.service.data.RequestLogin
 import com.juanmacapuano.clonetwitter.service.repository.Repository
 import com.juanmacapuano.clonetwitter.tools.enable
+import com.juanmacapuano.clonetwitter.tools.handleApiError
 import com.juanmacapuano.clonetwitter.tools.startNewActivity
 import com.juanmacapuano.clonetwitter.tools.visible
 import com.juanmacapuano.clonetwitter.ui.base.BaseFragment
 import com.juanmacapuano.clonetwitter.ui.home.HomeActivity
 import com.juanmacapuano.clonetwitter.viewModel.ViewModelAuth
+import kotlinx.coroutines.launch
 
 class LoginFragment : BaseFragment<ViewModelAuth, FragmentLoginBinding, Repository>() {
 
@@ -61,13 +64,12 @@ class LoginFragment : BaseFragment<ViewModelAuth, FragmentLoginBinding, Reposito
         viewModel.loginResponse.observe(viewLifecycleOwner, Observer {
             when (it) {
                 is Resource.Success -> {
-                    viewModel.saveAuthToken(it.value.token)
-                    requireActivity().startNewActivity(HomeActivity::class.java)
+                    lifecycleScope.launch {
+                        viewModel.saveAuthToken(it.value.token)
+                        requireActivity().startNewActivity(HomeActivity::class.java)
+                    }
                 }
-                is Resource.Failure -> {
-                    Toast.makeText(requireContext(), R.string.login_error, Toast.LENGTH_SHORT)
-                        .show()
-                }
+                is Resource.Failure -> handleApiError(it)
             }
         })
 

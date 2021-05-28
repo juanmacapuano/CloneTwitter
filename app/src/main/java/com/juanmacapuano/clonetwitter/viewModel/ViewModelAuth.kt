@@ -96,7 +96,7 @@ class ViewModelAuth(
         }
     }
 
-    fun saveAuthToken(token: String) = viewModelScope.launch {
+    suspend fun saveAuthToken(token: String) {
         repository.saveAuth(token)
     }
 }
