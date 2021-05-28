@@ -61,8 +61,8 @@ class LoginFragment : BaseFragment<ViewModelAuth, FragmentLoginBinding, Reposito
         viewModel.loginResponse.observe(viewLifecycleOwner, Observer {
             when (it) {
                 is Resource.Success -> {
-                        viewModel.saveAuthToken(it.value.token)
-                        requireActivity().startNewActivity(HomeActivity::class.java)
+                    viewModel.saveAuthToken(it.value.token)
+                    requireActivity().startNewActivity(HomeActivity::class.java)
                 }
                 is Resource.Failure -> {
                     Toast.makeText(requireContext(), R.string.login_error, Toast.LENGTH_SHORT)

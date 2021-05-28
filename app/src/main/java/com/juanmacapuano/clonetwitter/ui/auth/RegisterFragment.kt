@@ -99,11 +99,6 @@ class RegisterFragment: BaseFragment<ViewModelAuth, FragmentRegisterBinding, Rep
     private fun doRegister(name: String, email: String, password: String) {
         val requestSignup = RequestSignup(name, email, password, CODE_REGISTER)
         viewModel.doRegister(requestSignup)
-
-        /*if (viewModel.checkEmptyFieldsRegister(name, email, password)) {
-            val requestSignup = RequestSignup(name, email, password, CODE_REGISTER)
-            viewModel.doRegister(requestSignup)
-        }*/
     }
 
     private fun goToLogin() {
