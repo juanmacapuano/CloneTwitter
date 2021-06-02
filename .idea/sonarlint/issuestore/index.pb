@@ -28,8 +28,6 @@ L
 build.gradle,f/0/f07866736216be0ee2aba49e392191aeae700a35
 o
 ?app/src/main/java/com/juanmacapuano/clonetwitter/tools/Event.kt,6/b/6bdab9aa7db70e90d3eed5da8a486c992f56c80d
-P
- app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
 @
 app/build.gradle,f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164
 x
@@ -48,12 +46,8 @@ Sapp/src/main/java/com/juanmacapuano/clonetwitter/service/data/auth/ResponseLogi
 Lapp/src/main/java/com/juanmacapuano/clonetwitter/ui/base/ViewModelFactory.kt,b/9/b99894ba292af79197e19f6f252319841be68c7e
 {
 Kapp/src/main/java/com/juanmacapuano/clonetwitter/service/UserPreferences.kt,1/9/1904866422a72ff2b3f528dedb438751163672a6
-{
-Kapp/src/main/java/com/juanmacapuano/clonetwitter/viewModel/ViewModelAuth.kt,1/6/162ab3e905158ce014cecab5d21e991c533b20ca
 x
 Happ/src/main/java/com/juanmacapuano/clonetwitter/ui/home/HomeActivity.kt,3/e/3e7afb18cd789bfab9cca89cbe08168baf5cd2de
-x
-Happ/src/main/java/com/juanmacapuano/clonetwitter/ui/base/BaseFragment.kt,c/9/c9ce87cc4312b61bbc27cc472c798e38bf36c9ad
 Å
 Qapp/src/main/java/com/juanmacapuano/clonetwitter/service/api/StatusResponseAPI.kt,d/3/d31e959d5d4d47e1ae6d1797d60a213efc4aab6f
 o

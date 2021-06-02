@@ -26,7 +26,13 @@ class ViewModelTweets(
 
     init {
         viewModelScope.launch {
-            _responseTweet.value = repository.getAllTweets()
+            try {
+                _statusLoading.value = StatusResponseAPI.LOADING
+                _responseTweet.value = repository.getAllTweets()
+                _statusLoading.value = StatusResponseAPI.DONE
+            } catch (e: Exception) {
+                _statusLoading.value = StatusResponseAPI.ERROR
+            }
         }
     }
 }

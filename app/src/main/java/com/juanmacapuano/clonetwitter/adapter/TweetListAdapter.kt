@@ -8,8 +8,7 @@ import com.juanmacapuano.clonetwitter.databinding.FragmentTweetItemBinding
 import com.juanmacapuano.clonetwitter.service.data.tweets.Tweet
 
 class TweetListAdapter(private val clickListener: (Tweet) -> Unit, private val context: Context) :
-    RecyclerView.Adapter<TweetListAdapter.TweetListHolder>()
-{
+    RecyclerView.Adapter<TweetListAdapter.TweetListHolder>() {
     private val listTweets = ArrayList<Tweet>()
 
     override fun onCreateViewHolder(
@@ -34,7 +33,8 @@ class TweetListAdapter(private val clickListener: (Tweet) -> Unit, private val c
         notifyDataSetChanged()
     }
 
-    class TweetListHolder(private val binding: FragmentTweetItemBinding): RecyclerView.ViewHolder(binding.root) {
+    class TweetListHolder(private val binding: FragmentTweetItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         fun bind(tweet: Tweet, clickListener: (Tweet) -> Unit, context: Context) {
             binding.tvUserNameTweet.text = tweet.user.userName

@@ -10,9 +10,11 @@ import com.juanmacapuano.clonetwitter.adapter.TweetListAdapter
 import com.juanmacapuano.clonetwitter.databinding.FragmentHomeBinding
 import com.juanmacapuano.clonetwitter.service.api.ApiSwagger
 import com.juanmacapuano.clonetwitter.service.api.Resource
+import com.juanmacapuano.clonetwitter.service.api.StatusResponseAPI
 import com.juanmacapuano.clonetwitter.service.data.tweets.Tweet
 import com.juanmacapuano.clonetwitter.service.repository.Repository
 import com.juanmacapuano.clonetwitter.tools.handleApiError
+import com.juanmacapuano.clonetwitter.tools.visible
 import com.juanmacapuano.clonetwitter.ui.base.BaseFragment
 import com.juanmacapuano.clonetwitter.viewModel.ViewModelTweets
 import kotlinx.coroutines.flow.first
@@ -64,6 +66,20 @@ class HomeFragment : BaseFragment<ViewModelTweets, FragmentHomeBinding, Reposito
                     mAdapterTweetList.setListTweet(it.value)
                 }
                 is Resource.Failure -> handleApiError(it)
+            }
+        })
+
+        viewModel.statusResponseAPI.observe(viewLifecycleOwner, Observer {
+            when (it) {
+                StatusResponseAPI.LOADING -> {
+                    binding.lpbStatusTweetList.visible(true)
+                }
+                StatusResponseAPI.DONE -> {
+                    binding.lpbStatusTweetList.visible(false)
+                }
+                StatusResponseAPI.ERROR -> {
+                    binding.lpbStatusTweetList.visible(false)
+                }
             }
         })
     }
