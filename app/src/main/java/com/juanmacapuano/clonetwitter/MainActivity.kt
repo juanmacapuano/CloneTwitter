@@ -21,5 +21,7 @@ class MainActivity : AppCompatActivity() {
             val activity = if (it == null) AuthActivity::class.java else HomeActivity::class.java
             startNewActivity(activity)
         })
+
+        // startNewActivity(AuthActivity::class.java)
     }
 }

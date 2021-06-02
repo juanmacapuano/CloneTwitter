@@ -6,23 +6,24 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
-import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.juanmacapuano.clonetwitter.R
-import com.juanmacapuano.clonetwitter.databinding.FragmentLoginBinding
 import com.juanmacapuano.clonetwitter.databinding.FragmentRegisterBinding
 import com.juanmacapuano.clonetwitter.service.api.ApiSwagger
 import com.juanmacapuano.clonetwitter.service.api.Resource
 import com.juanmacapuano.clonetwitter.service.api.StatusResponseAPI
-import com.juanmacapuano.clonetwitter.service.data.RequestSignup
+import com.juanmacapuano.clonetwitter.service.data.auth.RequestSignup
 import com.juanmacapuano.clonetwitter.service.repository.Repository
 import com.juanmacapuano.clonetwitter.tools.enable
+import com.juanmacapuano.clonetwitter.tools.handleApiError
+import com.juanmacapuano.clonetwitter.tools.startNewActivity
 import com.juanmacapuano.clonetwitter.tools.visible
 import com.juanmacapuano.clonetwitter.ui.base.BaseFragment
+import com.juanmacapuano.clonetwitter.ui.home.HomeActivity
 import com.juanmacapuano.clonetwitter.viewModel.ViewModelAuth
+import kotlinx.coroutines.launch
 
 private val TAG = RegisterFragment::class.java.simpleName
 private val CODE_REGISTER = "UDEMYANDROID"
@@ -62,11 +63,12 @@ class RegisterFragment: BaseFragment<ViewModelAuth, FragmentRegisterBinding, Rep
         viewModel.registerResponse.observe(viewLifecycleOwner, Observer {
             when (it) {
                 is Resource.Success -> {
-                    Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_SHORT).show()
+                    lifecycleScope.launch {
+                        viewModel.saveAuthToken(it.value.token)
+                        requireActivity().startNewActivity(HomeActivity::class.java)
+                    }
                 }
-                is Resource.Failure -> {
-                    Toast.makeText(requireContext(), R.string.register_error, Toast.LENGTH_SHORT).show()
-                }
+                is Resource.Failure -> handleApiError(it)
             }
         })
 

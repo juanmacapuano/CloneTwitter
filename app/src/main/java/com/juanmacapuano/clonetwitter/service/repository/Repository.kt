@@ -2,8 +2,8 @@ package com.juanmacapuano.clonetwitter.service.repository
 
 import com.juanmacapuano.clonetwitter.service.UserPreferences
 import com.juanmacapuano.clonetwitter.service.api.ApiSwagger
-import com.juanmacapuano.clonetwitter.service.data.RequestLogin
-import com.juanmacapuano.clonetwitter.service.data.RequestSignup
+import com.juanmacapuano.clonetwitter.service.data.auth.RequestLogin
+import com.juanmacapuano.clonetwitter.service.data.auth.RequestSignup
 
 class Repository(
     private val api: ApiSwagger,
@@ -15,5 +15,7 @@ class Repository(
     suspend fun registerUser(requestSignup: RequestSignup) = safeApiCall { api.doSignUp(requestSignup)}
 
     suspend fun saveAuth(token: String) = preferences.saveAuthToken(token)
+
+    suspend fun getAllTweets() = safeApiCall { api.getAllTweets()}
 
 }

@@ -6,18 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
-import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.juanmacapuano.clonetwitter.R
 import com.juanmacapuano.clonetwitter.databinding.FragmentLoginBinding
-import com.juanmacapuano.clonetwitter.service.UserPreferences
 import com.juanmacapuano.clonetwitter.service.api.ApiSwagger
-import com.juanmacapuano.clonetwitter.service.api.RemoteDataSource
 import com.juanmacapuano.clonetwitter.service.api.Resource
 import com.juanmacapuano.clonetwitter.service.api.StatusResponseAPI
-import com.juanmacapuano.clonetwitter.service.data.RequestLogin
+import com.juanmacapuano.clonetwitter.service.data.auth.RequestLogin
 import com.juanmacapuano.clonetwitter.service.repository.Repository
 import com.juanmacapuano.clonetwitter.tools.enable
 import com.juanmacapuano.clonetwitter.tools.handleApiError
@@ -37,7 +34,8 @@ class LoginFragment : BaseFragment<ViewModelAuth, FragmentLoginBinding, Reposito
         container: ViewGroup?
     ) = FragmentLoginBinding.inflate(inflater, container, false)
 
-    override fun getFragmentRepository() = Repository(remoteDataSource.buildAPI(ApiSwagger::class.java), userPreferences)
+    override fun getFragmentRepository() =
+        Repository(remoteDataSource.buildAPI(ApiSwagger::class.java), userPreferences)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

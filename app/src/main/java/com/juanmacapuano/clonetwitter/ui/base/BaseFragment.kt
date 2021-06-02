@@ -12,7 +12,6 @@ import androidx.viewbinding.ViewBinding
 import com.juanmacapuano.clonetwitter.service.UserPreferences
 import com.juanmacapuano.clonetwitter.service.api.RemoteDataSource
 import com.juanmacapuano.clonetwitter.service.repository.BaseRepository
-import com.juanmacapuano.clonetwitter.service.repository.Repository
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 

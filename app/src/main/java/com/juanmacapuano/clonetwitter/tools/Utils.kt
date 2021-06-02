@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 import com.juanmacapuano.clonetwitter.service.api.Resource
 import com.juanmacapuano.clonetwitter.ui.auth.LoginFragment
+import com.juanmacapuano.clonetwitter.ui.auth.RegisterFragment
 
 fun View.visible(isVisible: Boolean) {
     visibility = if (isVisible) View.VISIBLE else View.GONE
@@ -43,8 +44,8 @@ fun Fragment.handleApiError(
         failure.errorCode == 400 -> {
             if(this is LoginFragment) {
                 requireView().snackBar("You've entered incorrect email or password")
-            }else {
-                //TODO perform logout operation here
+            }else if(this is RegisterFragment){
+                failure.errorBody?.string()?.let { requireView().snackBar(it) }
             }
         }
         else -> {

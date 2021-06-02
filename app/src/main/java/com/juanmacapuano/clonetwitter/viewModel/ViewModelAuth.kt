@@ -3,10 +3,10 @@ package com.juanmacapuano.clonetwitter.viewModel
 import androidx.lifecycle.*
 import com.juanmacapuano.clonetwitter.service.api.Resource
 import com.juanmacapuano.clonetwitter.service.api.StatusResponseAPI
-import com.juanmacapuano.clonetwitter.service.data.RequestLogin
-import com.juanmacapuano.clonetwitter.service.data.RequestSignup
-import com.juanmacapuano.clonetwitter.service.data.ResponseLogin
-import com.juanmacapuano.clonetwitter.service.data.ResponseSignup
+import com.juanmacapuano.clonetwitter.service.data.auth.RequestLogin
+import com.juanmacapuano.clonetwitter.service.data.auth.RequestSignup
+import com.juanmacapuano.clonetwitter.service.data.auth.ResponseLogin
+import com.juanmacapuano.clonetwitter.service.data.auth.ResponseSignup
 import com.juanmacapuano.clonetwitter.service.repository.Repository
 import com.juanmacapuano.clonetwitter.tools.Event
 import kotlinx.coroutines.launch
@@ -56,42 +56,6 @@ class ViewModelAuth(
                 _statusLoading.value = StatusResponseAPI.DONE
             } catch (e: UnknownHostException) {
                 _statusLoading.value = StatusResponseAPI.ERROR
-            }
-        }
-    }
-
-    fun checkEmptyFieldsLogin(email: String, password: String): Boolean {
-        return when {
-            email.isEmpty() -> {
-                _statusMessage.value = Event("Ingrese un Email")
-                false
-            }
-            password.isEmpty() -> {
-                _statusMessage.value = Event("Ingrese un Password")
-                false
-            }
-            else -> {
-                true
-            }
-        }
-    }
-
-    fun checkEmptyFieldsRegister(name: String, email: String, password: String): Boolean {
-        return when {
-            name.isEmpty() -> {
-                _statusMessage.value = Event("Ingrese un nombre")
-                false
-            }
-            email.isEmpty() -> {
-                _statusMessage.value = Event("Ingrese un Email")
-                false
-            }
-            password.isEmpty() -> {
-                _statusMessage.value = Event("Ingrese un Password")
-                false
-            }
-            else -> {
-                true
             }
         }
     }

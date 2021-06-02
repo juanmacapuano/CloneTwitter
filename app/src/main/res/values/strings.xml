@@ -12,5 +12,7 @@
     <string name="password_error">Ingrese un Password</string>
     <string name="login_error">Email y/o password incorrecto</string>
     <string name="register_error">Hubo un error. Por favor, intente nuevamente</string>
-    <string name="hello_blank_fragment">Hello user</string>
+    <string name="tweet_list_empty">Lista de Tweet vacía</string>
+    <string name="like_numbers">0</string>
+
 </resources>

@@ -1,4 +1,4 @@
-package com.juanmacapuano.clonetwitter.service.data
+package com.juanmacapuano.clonetwitter.service.data.auth
 
 data class RequestSignup(val username: String,
                          val email: String,
