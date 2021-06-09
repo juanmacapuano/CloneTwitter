@@ -4,10 +4,12 @@ import com.juanmacapuano.clonetwitter.service.data.auth.RequestLogin
 import com.juanmacapuano.clonetwitter.service.data.auth.RequestSignup
 import com.juanmacapuano.clonetwitter.service.data.auth.ResponseLogin
 import com.juanmacapuano.clonetwitter.service.data.auth.ResponseSignup
+import com.juanmacapuano.clonetwitter.service.data.tweets.RequestNewTweet
 import com.juanmacapuano.clonetwitter.service.data.tweets.Tweet
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface ApiSwagger {
 
@@ -19,5 +21,11 @@ interface ApiSwagger {
 
     @GET(value = "tweets/all")
     suspend fun getAllTweets() : List<Tweet>
+
+    @POST("tweets/create")
+    suspend fun createTweet(@Body requestNewTweet: RequestNewTweet): Tweet
+
+    @POST("tweets/like/{idTweet}")
+    suspend fun likeTweet(@Path("idTweet") idTweet: Int): Tweet
 
 }

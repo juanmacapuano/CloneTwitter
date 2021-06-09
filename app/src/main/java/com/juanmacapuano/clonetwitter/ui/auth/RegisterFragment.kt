@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -23,24 +25,21 @@ import com.juanmacapuano.clonetwitter.tools.visible
 import com.juanmacapuano.clonetwitter.ui.base.BaseFragment
 import com.juanmacapuano.clonetwitter.ui.home.HomeActivity
 import com.juanmacapuano.clonetwitter.viewModel.ViewModelAuth
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 private val TAG = RegisterFragment::class.java.simpleName
 private val CODE_REGISTER = "UDEMYANDROID"
 
-class RegisterFragment: BaseFragment<ViewModelAuth, FragmentRegisterBinding, Repository>() {
+@AndroidEntryPoint
+class RegisterFragment: Fragment() {
 
-    override fun getViewModel() = ViewModelAuth::class.java
-
-    override fun getFragmentBinding(
-        inflater: LayoutInflater,
-        container: ViewGroup?
-    ) = FragmentRegisterBinding.inflate(inflater, container, false)
-
-    override fun getFragmentRepository() = Repository(remoteDataSource.buildAPI(ApiSwagger::class.java), userPreferences)
+    lateinit var binding : FragmentRegisterBinding
+    private val viewModel : ViewModelAuth by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding = FragmentRegisterBinding.inflate(layoutInflater)
         events()
         subscribeUI()
     }

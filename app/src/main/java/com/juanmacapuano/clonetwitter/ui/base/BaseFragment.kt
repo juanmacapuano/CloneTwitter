@@ -12,8 +12,13 @@ import androidx.viewbinding.ViewBinding
 import com.juanmacapuano.clonetwitter.service.UserPreferences
 import com.juanmacapuano.clonetwitter.service.api.RemoteDataSource
 import com.juanmacapuano.clonetwitter.service.repository.BaseRepository
+import dagger.hilt.EntryPoint
+import dagger.hilt.InstallIn
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.components.FragmentComponent
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 abstract class BaseFragment<VM: ViewModel, B: ViewBinding, R: BaseRepository> : Fragment() {
 

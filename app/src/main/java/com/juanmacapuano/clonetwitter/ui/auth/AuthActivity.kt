@@ -8,7 +8,9 @@ import com.juanmacapuano.clonetwitter.databinding.ActivityAuthBinding
 import com.juanmacapuano.clonetwitter.service.UserPreferences
 import com.juanmacapuano.clonetwitter.tools.startNewActivity
 import com.juanmacapuano.clonetwitter.ui.home.HomeActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AuthActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityAuthBinding

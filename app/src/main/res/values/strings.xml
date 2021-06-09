@@ -14,5 +14,9 @@
     <string name="register_error">Hubo un error. Por favor, intente nuevamente</string>
     <string name="tweet_list_empty">Lista de Tweet vacía</string>
     <string name="like_numbers">0</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="twittear">Twittear</string>
+    <string name="text_new_tweet">¿Qué está pasando?</string>
 
 </resources>

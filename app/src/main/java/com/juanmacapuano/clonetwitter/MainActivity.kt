@@ -9,7 +9,9 @@ import com.juanmacapuano.clonetwitter.service.UserPreferences
 import com.juanmacapuano.clonetwitter.tools.startNewActivity
 import com.juanmacapuano.clonetwitter.ui.auth.AuthActivity
 import com.juanmacapuano.clonetwitter.ui.home.HomeActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

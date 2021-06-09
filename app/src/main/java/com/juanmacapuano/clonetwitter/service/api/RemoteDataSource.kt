@@ -5,8 +5,9 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Inject
 
-class RemoteDataSource {
+class RemoteDataSource @Inject constructor(){
 
     companion object {
         const val BASE_URL = "https://minitwitter.com:3001/apiv1/"

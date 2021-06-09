@@ -9,5 +9,19 @@
         android:id="@+id/homeFragment"
         android:name="com.juanmacapuano.clonetwitter.ui.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_newTweetFragment"
+            app:destination="@id/newTweetFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newTweetFragment"
+        android:name="com.juanmacapuano.clonetwitter.ui.home.NewTweetFragment"
+        android:label="NewTweetFragment" >
+        <action
+            android:id="@+id/action_newTweetFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>
