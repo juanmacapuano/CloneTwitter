@@ -23,6 +23,7 @@ import kotlinx.coroutines.runBlocking
 class HomeFragment : BaseFragment<ViewModelTweets, FragmentHomeBinding, Repository>() {
 
     lateinit var mAdapterTweetList: TweetListAdapter
+    lateinit var userNameString: String
 
     override fun getViewModel() = ViewModelTweets::class.java
 
@@ -35,6 +36,9 @@ class HomeFragment : BaseFragment<ViewModelTweets, FragmentHomeBinding, Reposito
         val token = runBlocking {
             userPreferences.authToken.first()
         }
+        userNameString = runBlocking {
+            userPreferences.userName.first()
+        } ?: "-"
         return Repository(remoteDataSource.buildAPI(ApiSwagger::class.java, token), userPreferences)
     }
 
@@ -43,7 +47,7 @@ class HomeFragment : BaseFragment<ViewModelTweets, FragmentHomeBinding, Reposito
 
         mAdapterTweetList = TweetListAdapter(
             { selectedItem: Tweet -> itemClicked(selectedItem) },
-            requireContext()
+            requireContext(), userNameString
         )
 
         //fragment's view lifecycle
@@ -69,6 +73,10 @@ class HomeFragment : BaseFragment<ViewModelTweets, FragmentHomeBinding, Reposito
             }
         })
 
+        viewModel.listTweets.observe(viewLifecycleOwner, Observer {
+            mAdapterTweetList.setListTweet(it)
+        })
+
         viewModel.statusResponseAPI.observe(viewLifecycleOwner, Observer {
             when (it) {
                 StatusResponseAPI.LOADING -> {
@@ -86,6 +94,8 @@ class HomeFragment : BaseFragment<ViewModelTweets, FragmentHomeBinding, Reposito
 
     private fun itemClicked(selectedItem: Tweet) {
         val bundle = Bundle()
+        viewModel.setChange(selectedItem)
+
         //TODO falta ir al twwet seleccionado
     }
 }

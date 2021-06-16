@@ -12,6 +12,10 @@ class UserPreferences(
     private val context: Context
 ) {
 
+    val userName: Flow<String?>
+        get() = context.dataStore.data.map { preferences ->
+            preferences[KEY_USER]
+        }
 
     val authToken: Flow<String?>
         get() = context.dataStore.data.map { preferences ->
@@ -24,8 +28,15 @@ class UserPreferences(
         }
     }
 
+    suspend fun saveUserName(userName: String) {
+        context.dataStore.edit { prefs ->
+            prefs[KEY_USER] = userName
+        }
+    }
+
     companion object {
         private val KEY_AUTH = stringPreferencesKey("key_auth")
+        private val KEY_USER = stringPreferencesKey("key_userName")
     }
 
 }

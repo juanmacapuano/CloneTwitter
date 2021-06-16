@@ -16,6 +16,10 @@ class Repository(
 
     suspend fun saveAuth(token: String) = preferences.saveAuthToken(token)
 
+    suspend fun saveUserName(userName: String) = preferences.saveUserName(userName)
+
     suspend fun getAllTweets() = safeApiCall { api.getAllTweets()}
+
+    suspend fun setLike(idTweet: Int) = safeApiCall { api.setLike(idTweet)}
 
 }

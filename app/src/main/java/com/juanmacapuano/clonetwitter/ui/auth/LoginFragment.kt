@@ -64,6 +64,7 @@ class LoginFragment : BaseFragment<ViewModelAuth, FragmentLoginBinding, Reposito
                 is Resource.Success -> {
                     lifecycleScope.launch {
                         viewModel.saveAuthToken(it.value.token)
+                        viewModel.saveUserName(it.value.username)
                         requireActivity().startNewActivity(HomeActivity::class.java)
                     }
                 }

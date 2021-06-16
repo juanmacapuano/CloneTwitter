@@ -8,7 +8,7 @@ data class Tweet(
     @SerializedName("mensaje")
     val message: String,
     @SerializedName("likes")
-    val likes: List<User>,
+    var likes: List<User>,
     @SerializedName("user")
     val user: User
 )

@@ -8,6 +8,7 @@ import com.juanmacapuano.clonetwitter.service.data.tweets.Tweet
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface ApiSwagger {
 
@@ -19,5 +20,8 @@ interface ApiSwagger {
 
     @GET(value = "tweets/all")
     suspend fun getAllTweets() : List<Tweet>
+
+    @POST("tweets/like/{idTweet}")
+    suspend fun setLike(@Path("idTweet") idTweet: Int) : Tweet
 
 }
