@@ -1,11 +1,14 @@
 package com.juanmacapuano.clonetwitter.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.juanmacapuano.clonetwitter.R
 import com.juanmacapuano.clonetwitter.adapter.TweetListAdapter
 import com.juanmacapuano.clonetwitter.databinding.FragmentHomeBinding
 import com.juanmacapuano.clonetwitter.service.api.ApiSwagger
@@ -58,9 +61,18 @@ class HomeFragment : BaseFragment<ViewModelTweets, FragmentHomeBinding, Reposito
             layoutManager = LinearLayoutManager(requireContext())
         }
 
-
+        events()
         subscribeUI()
+    }
 
+    private fun events() {
+        binding.faNewTweet.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_newTweetFragment)
+        }
+
+        binding.swiperefresh.setOnRefreshListener {
+            viewModel.setRefreshData()
+        }
     }
 
     private fun subscribeUI() {
@@ -68,6 +80,8 @@ class HomeFragment : BaseFragment<ViewModelTweets, FragmentHomeBinding, Reposito
             when (it) {
                 is Resource.Success -> {
                     mAdapterTweetList.setListTweet(it.value)
+                    binding.swiperefresh.isRefreshing = false
+                    binding.faNewTweet.visible(true)
                 }
                 is Resource.Failure -> handleApiError(it)
             }
@@ -81,13 +95,25 @@ class HomeFragment : BaseFragment<ViewModelTweets, FragmentHomeBinding, Reposito
             when (it) {
                 StatusResponseAPI.LOADING -> {
                     binding.lpbStatusTweetList.visible(true)
+                    binding.faNewTweet.visible(false)
                 }
                 StatusResponseAPI.DONE -> {
                     binding.lpbStatusTweetList.visible(false)
+                    binding.faNewTweet.visible(true)
                 }
                 StatusResponseAPI.ERROR -> {
                     binding.lpbStatusTweetList.visible(false)
+                    binding.faNewTweet.visible(false)
                 }
+            }
+        })
+
+        viewModel.responseLikeTweet.observe(viewLifecycleOwner, Observer {
+            when (it) {
+                is Resource.Success -> {
+                    Log.i("Like", it.value.user.userName)
+                }
+                is Resource.Failure -> handleApiError(it)
             }
         })
     }

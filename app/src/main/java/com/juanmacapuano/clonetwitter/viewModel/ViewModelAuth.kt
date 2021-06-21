@@ -9,12 +9,15 @@ import com.juanmacapuano.clonetwitter.service.data.auth.ResponseLogin
 import com.juanmacapuano.clonetwitter.service.data.auth.ResponseSignup
 import com.juanmacapuano.clonetwitter.service.repository.Repository
 import com.juanmacapuano.clonetwitter.tools.Event
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import java.net.UnknownHostException
+import javax.inject.Inject
 
 private val TAG = ViewModelAuth::class.java.simpleName
 
-class ViewModelAuth(
+@HiltViewModel
+class ViewModelAuth @Inject constructor(
     private val repository: Repository
 ) : ViewModel() {
 

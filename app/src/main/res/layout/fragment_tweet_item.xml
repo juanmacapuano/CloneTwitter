@@ -12,13 +12,15 @@
         android:layout_height="wrap_content"
         android:padding="10dp">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/iv_user_photo_tweet"
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:src="@drawable/ic_outline_face_black_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_outline_face_black_24" />
+            app:civ_border_width="2dp"
+            app:civ_border_color="#FF000000"/>
 
         <TextView
             android:id="@+id/tv_userName_tweet"

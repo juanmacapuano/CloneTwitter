@@ -4,8 +4,12 @@ import com.juanmacapuano.clonetwitter.service.UserPreferences
 import com.juanmacapuano.clonetwitter.service.api.ApiSwagger
 import com.juanmacapuano.clonetwitter.service.data.auth.RequestLogin
 import com.juanmacapuano.clonetwitter.service.data.auth.RequestSignup
+import com.juanmacapuano.clonetwitter.service.data.tweets.RequestNewTweet
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-class Repository(
+
+class Repository @Inject constructor(
     private val api: ApiSwagger,
     private val preferences: UserPreferences
 ) : BaseRepository() {
@@ -19,6 +23,10 @@ class Repository(
     suspend fun saveUserName(userName: String) = preferences.saveUserName(userName)
 
     suspend fun getAllTweets() = safeApiCall { api.getAllTweets()}
+
+    suspend fun createTweet(requestNewTweet: RequestNewTweet) = safeApiCall { api.createTweet(requestNewTweet) }
+
+    suspend fun likeTweet(idTweet: Int) = safeApiCall { api.likeTweet(idTweet) }
 
     suspend fun setLike(idTweet: Int) = safeApiCall { api.setLike(idTweet)}
 

@@ -11,10 +11,12 @@ import com.juanmacapuano.clonetwitter.R
 import com.juanmacapuano.clonetwitter.databinding.FragmentTweetItemBinding
 import com.juanmacapuano.clonetwitter.service.UserPreferences
 import com.juanmacapuano.clonetwitter.service.data.tweets.Tweet
+import com.juanmacapuano.clonetwitter.viewModel.ViewModelTweets
 
 class TweetListAdapter(private val clickListener: (Tweet) -> Unit, private val context: Context, private val userName: String) :
     RecyclerView.Adapter<TweetListAdapter.TweetListHolder>() {
     private var listTweets = ArrayList<Tweet>()
+
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -67,6 +69,8 @@ class TweetListAdapter(private val clickListener: (Tweet) -> Unit, private val c
 
             //binding.executePendingBindings()
         }
+
+
     }
 
 }

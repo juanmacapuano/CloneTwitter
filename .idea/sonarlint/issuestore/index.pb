@@ -24,18 +24,44 @@ T
 $.idea/codeStyles/codeStyleConfig.xml,d/d/dd7b3350c29c49497756c7f32c69a3bed18b1cba
 L
 .idea/codeStyles/Project.xml,6/e/6ecd6000a7b6f4a2884412ff19f74193ed089648
+<<<<<<< HEAD
 o
 ?app/src/main/java/com/juanmacapuano/clonetwitter/tools/Event.kt,6/b/6bdab9aa7db70e90d3eed5da8a486c992f56c80d
 Ç
 Rapp/src/main/java/com/juanmacapuano/clonetwitter/service/data/auth/RequestLogin.kt,0/f/0fdaa74107ebdb7ad716fc5a8c0c7317e34af616
+=======
 É
 Sapp/src/main/java/com/juanmacapuano/clonetwitter/service/data/auth/RequestSignup.kt,0/a/0a83c00aa5f79235084e8e4bf26fc93e63692c07
-Ñ
-Tapp/src/main/java/com/juanmacapuano/clonetwitter/service/data/auth/ResponseSignup.kt,8/5/857b45442a16bc04a02124dc4123c9f9aa663c08
+|
+Lapp/src/main/java/com/juanmacapuano/clonetwitter/service/data/tweets/Like.kt,2/e/2e5fea43cee66ce501e5e1977912587e7f0cb79c
+s
+Capp/src/main/java/com/juanmacapuano/clonetwitter/CloneTweeterApp.kt,0/1/013b19a24b7cbf7dba747cb204a591d347a8f2ad
+P
+ app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
+|
+Lapp/src/main/java/com/juanmacapuano/clonetwitter/service/data/tweets/User.kt,0/e/0eb96c11480c8603aca0327395f9c2b8bd20adf0
+<
+build.gradle,f/0/f07866736216be0ee2aba49e392191aeae700a35
+@
+app/build.gradle,f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164
+>>>>>>> CreateTweet
 É
 Sapp/src/main/java/com/juanmacapuano/clonetwitter/service/data/auth/ResponseLogin.kt,e/3/e32eeab9c4341210644492e35413dd64124e333f
+Ñ
+Tapp/src/main/java/com/juanmacapuano/clonetwitter/service/data/auth/ResponseSignup.kt,8/5/857b45442a16bc04a02124dc4123c9f9aa663c08
+Ç
+Rapp/src/main/java/com/juanmacapuano/clonetwitter/service/data/auth/RequestLogin.kt,0/f/0fdaa74107ebdb7ad716fc5a8c0c7317e34af616
+p
+@app/src/main/java/com/juanmacapuano/clonetwitter/di/AppModule.kt,d/b/dbde34ff2c1626e9dac622117bc3b576a10d0b7d
+o
+?app/src/main/java/com/juanmacapuano/clonetwitter/tools/Event.kt,6/b/6bdab9aa7db70e90d3eed5da8a486c992f56c80d
+Å
+Qapp/src/main/java/com/juanmacapuano/clonetwitter/service/api/StatusResponseAPI.kt,d/3/d31e959d5d4d47e1ae6d1797d60a213efc4aab6f
+á
+Wapp/src/main/java/com/juanmacapuano/clonetwitter/service/data/tweets/RequestNewTweet.kt,b/a/ba80fa0874a6c477d761107a09ce42c0b61141d4
 |
 Lapp/src/main/java/com/juanmacapuano/clonetwitter/ui/base/ViewModelFactory.kt,b/9/b99894ba292af79197e19f6f252319841be68c7e
+<<<<<<< HEAD
 x
 Happ/src/main/java/com/juanmacapuano/clonetwitter/ui/home/HomeActivity.kt,3/e/3e7afb18cd789bfab9cca89cbe08168baf5cd2de
 Å
@@ -82,3 +108,17 @@ x
 Happ/src/main/java/com/juanmacapuano/clonetwitter/ui/home/HomeFragment.kt,b/8/b801e4b926aadb61fe0b4ead00151cc87cd45227
 |
 Lapp/src/main/java/com/juanmacapuano/clonetwitter/adapter/TweetListAdapter.kt,1/d/1d4d2baf03bcb8878a0a0866cfd354ba07e58c48
+=======
+{
+Kapp/src/main/java/com/juanmacapuano/clonetwitter/viewModel/ViewModelAuth.kt,1/6/162ab3e905158ce014cecab5d21e991c533b20ca
+Ä
+Papp/src/main/java/com/juanmacapuano/clonetwitter/service/api/RemoteDataSource.kt,7/9/7940c9983a481114e9c76931f295739869cf2381
+Ö
+Uapp/src/main/java/com/juanmacapuano/clonetwitter/service/repository/BaseRepository.kt,6/5/657537bc41427801ddf69818d48f7f80fdf0558d
+x
+Happ/src/main/java/com/juanmacapuano/clonetwitter/service/api/Resource.kt,1/c/1c647baf248cc50a6fcfd45a1b9fe6b353085bad
+x
+Happ/src/main/java/com/juanmacapuano/clonetwitter/ui/home/HomeActivity.kt,3/e/3e7afb18cd789bfab9cca89cbe08168baf5cd2de
+{
+Kapp/src/main/java/com/juanmacapuano/clonetwitter/service/UserPreferences.kt,1/9/1904866422a72ff2b3f528dedb438751163672a6
+>>>>>>> CreateTweet
