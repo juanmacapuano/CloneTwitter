@@ -14,7 +14,7 @@ class UserPreferences @Inject constructor(@ApplicationContext context: Context) 
 
     private val appContext = context.applicationContext
     val userName: Flow<String?>
-        get() = context.dataStore.data.map { preferences ->
+        get() = appContext.dataStore.data.map { preferences ->
             preferences[KEY_USER]
         }
 
@@ -30,7 +30,7 @@ class UserPreferences @Inject constructor(@ApplicationContext context: Context) 
     }
 
     suspend fun saveUserName(userName: String) {
-        context.dataStore.edit { prefs ->
+        appContext.dataStore.edit { prefs ->
             prefs[KEY_USER] = userName
         }
     }
